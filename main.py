@@ -11,6 +11,7 @@ from linebot.models import (
 )
 import os
 import random
+import sub
 
 app = Flask(__name__)
 
@@ -43,7 +44,7 @@ def callback():
 def handle_message(event):
     message = event.message.text
     if message=='ヌメロン' or message=='ぬめろん' or message=='Numer0n':
-        Numer0n()
+        sub.Numer0n()
         returnMessage = '1'
     else:
         returnMessage = '2'
