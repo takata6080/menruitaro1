@@ -42,9 +42,11 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = event.message.text
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=message))
+    if message=='1':
+        returnMessage = '1'
+    else:
+        returnMessage = '2'
+    line_bot_api.reply_message(event.reply_token,returnMessage)
 
 
 if __name__ == "__main__":
