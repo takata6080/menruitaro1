@@ -46,7 +46,7 @@ def handle_message(event):
         returnMessage = '1'
     else:
         returnMessage = '2'
-    line_bot_api.reply_message(event.reply_token,returnMessage)
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMessage))
 
 
 if __name__ == "__main__":
