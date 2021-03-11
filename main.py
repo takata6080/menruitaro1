@@ -1,6 +1,6 @@
 from flask import Flask, request, abort
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask import render_template, request
+# from flask.ext.sqlalchemy import SQLAlchemy
+# from flask import render_template, request
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -16,8 +16,8 @@ import random
 import sub
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
-db = SQLAlchemy(app)
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
+# db = SQLAlchemy(app)
 
 #環境変数取得
 LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]

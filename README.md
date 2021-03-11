@@ -12,6 +12,7 @@
 - https://devcenter.heroku.com/articles/heroku-cli
 
 # Heroku?PostgreSQL???????????
+- https://sbc-web.hatenablog.jp/entry/2017/03/01/Heroku%E3%81%A7%E7%84%A1%E6%96%99%E3%81%AEDB%28PostgreSQL%29%E3%82%92%E4%BD%9C%E6%88%90%E3%81%99%E3%82%8B
 - https://k-sasaking.net/programing/heroku-postgres-install/
 
 # Postgres install
