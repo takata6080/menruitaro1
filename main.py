@@ -46,7 +46,7 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    returnMessage = sub.message(event.message.text)
+    returnMessage = sub.return_message(event.message.text)
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMessage))
 
 # # モデル作成
