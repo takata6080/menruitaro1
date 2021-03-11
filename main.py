@@ -46,60 +46,55 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = event.message.text
-    if message=='ヌメロン' or message=='ぬめろん' or message=='Numer0n':
-        register()
-        returnMessage = '1'
-    else:
-        returnMessage = '2'
+    returnMessage = sub.message(event.message.text)
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMessage))
 
-# モデル作成
-class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(80), unique=True)
+# # モデル作成
+# class User(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     username = db.Column(db.String(80), unique=True)
+#     email = db.Column(db.String(80), unique=True)
 
-    def __init__(self, username, email):
-        self.username = username
-        self.email = email
+#     def __init__(self, username, email):
+#         self.username = username
+#         self.email = email
 
-    def __repr__(self):
-        return '<User %r>' % self.username
+#     def __repr__(self):
+#         return '<User %r>' % self.username
 
-class Task(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    tasks = db.Column(db.String(80))
-    user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
+# class Task(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     tasks = db.Column(db.String(80))
+#     user_id = db.Column(db.Integer,db.ForeignKey('user.id'))
 
-    def __init__(self, tasks, user_id):
-        self.tasks = tasks
-        self.user_id = user_id
+#     def __init__(self, tasks, user_id):
+#         self.tasks = tasks
+#         self.user_id = user_id
 
-    def __repr__(self):
-        return '<Task %r>' % self.tasks
+#     def __repr__(self):
+#         return '<Task %r>' % self.tasks
 
-# データベースに追加するコード例
-@app.route("/", methods=['POST'])
-def register():
-    if request.method == 'POST':
-        name= request.form['name']
-        email = request.form['email']
-        task = request.form['task']
-        # emailが未登録ならユーザー追加
-        if not db.session.query(User).filter(User.email == email).count():
-            reg = User(name, email)
-            db.session.add(reg)
-            db.session.commit()
+# # データベースに追加するコード例
+# @app.route("/", methods=['POST'])
+# def register():
+#     if request.method == 'POST':
+#         name= request.form['name']
+#         email = request.form['email']
+#         task = request.form['task']
+#         # emailが未登録ならユーザー追加
+#         if not db.session.query(User).filter(User.email == email).count():
+#             reg = User(name, email)
+#             db.session.add(reg)
+#             db.session.commit()
 
 
-        # タスク追加
-        user_id= User.query.filter_by(User.email == email).first().id
-        task = Task(text, user_id)
-        db.session.add(task)
-        db.session.commit()
+#         # タスク追加
+#         user_id= User.query.filter_by(User.email == email).first().id
+#         task = Task(text, user_id)
+#         db.session.add(task)
+#         db.session.commit()
 
-        return render_template('success.html')  return render_template('index.html')
+#         return render_template('success.html')  return render_template('index.html')
 
 if __name__ == "__main__":
 #    app.run()
