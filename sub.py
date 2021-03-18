@@ -16,7 +16,7 @@ def return_message(message):
     elif message=='今日の麺類' or message=='麺類':
         returnMessage = '今日おすすめの麺類は...日高屋のチゲ味噌ラーメン！！'
     elif '日向坂' in message:
-        returnMessage = 'メンバーを入力して下さい\n'.join(hnt_list('name'))
+        returnMessage = 'メンバーを入力して下さい\n'+'\n'.join(hnt_list('name'))
     
     else:
         returnMessage = 'YO!YO!' + message + 'だYo！'
@@ -30,24 +30,24 @@ def hnt_list(select):
             '佐々木美鈴',
             '斎藤京子',
             '高本彩花',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
-            '',
+            '高瀬愛奈',
+            '潮紗理奈',
+            '東村芽依',
+            '加藤史帆',
+            '影山優佳',
+            '丹生明里',
+            '宮田愛萌',
+            '濱岸ひより',
+            '河田陽菜',
+            '松田好花',
+            '富田鈴花',
+            '渡邉美穂',
+            '金村美玖',
+            '小坂菜緒',
+            '上村ひなの',
+            '高橋未来虹',
+            '山口陽世',
+            '森本茉莉',
         ] 
     elif select == 'message':
         hnt_list = [
