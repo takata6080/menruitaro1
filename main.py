@@ -71,7 +71,7 @@ def handle_message(event):
     for message in text_message:
         returnMessage.append(TextSendMessage(text=message))
     # FQDN = 'https://git.heroku.com/menruitaro1.git'
-    FQDN = 'https://github.com/takata6080/menruitaro1/blob/main'
+    FQDN = 'https://raw.githubusercontent.com/takata6080/menruitaro1/main'
     # line_bot_api.reply_message(event.reply_token,returnMessage)
     line_bot_api.reply_message(
         event.reply_token,
