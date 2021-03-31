@@ -10,8 +10,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import (
-    MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, VideoSendMessage, StickerSendMessage, AudioSendMessage,Event
+    MessageEvent, TextMessage, TextSendMessage, ImageMessage, ImageSendMessage, VideoSendMessage, StickerSendMessage, AudioSendMessage,Event
 )
+
 import os
 import random
 import sub
@@ -70,12 +71,14 @@ def handle_message(event):
     for message in text_message:
         returnMessage.append(TextSendMessage(text=message))
     FQDN = 'https://git.heroku.com/menruitaro1.git'
-    return_photo = ImageSendMessage(
-        original_content_url = FQDN + '/images/' + 'tomita' + '.jpg',
-        preview_image_url = FQDN + '/images/' + 'tomita' + '.jpg',
-　　)
     # line_bot_api.reply_message(event.reply_token,returnMessage)
-    line_bot_api.reply_message(event.reply_token,return_photo)
+    line_bot_api.reply_message(
+        event.reply_token,
+        ImageSendMessage(
+            original_content_url = FQDN + '/images/' + 'tomita' + '.jpg',
+            preview_image_url = FQDN + '/images/' + 'tomita' + '.jpg'
+        )    
+    )
 
 # @handler.add(Event, timestamp=ImageMessage)
 # def handle_image(event):
