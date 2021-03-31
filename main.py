@@ -64,8 +64,12 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    returnMessage = sub.return_message(event.message.text)
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=returnMessage))
+    text_message = sub.return_message(event.message.text)
+    
+    returnMessage = []
+    for message in text_message:
+        returnMessage.append(TextSendMessage(text=message))
+    line_bot_api.reply_message(event.reply_token,returnMessage)
 
 # @handler.add(Event, timestamp=ImageMessage)
 # def handle_image(event):
