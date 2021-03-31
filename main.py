@@ -69,7 +69,13 @@ def handle_message(event):
     returnMessage = []
     for message in text_message:
         returnMessage.append(TextSendMessage(text=message))
-    line_bot_api.reply_message(event.reply_token,returnMessage)
+    FQDN = 'https://git.heroku.com/menruitaro1.git'
+    return_photo = ImageSendMessage(
+        original_content_url = FQDN + '/images/' + 'tomita' + '.jpg',
+        preview_image_url = FQDN + '/images/' + 'tomita' + '.jpg',
+　　)
+    # line_bot_api.reply_message(event.reply_token,returnMessage)
+    line_bot_api.reply_message(event.reply_token,return_photo)
 
 # @handler.add(Event, timestamp=ImageMessage)
 # def handle_image(event):
